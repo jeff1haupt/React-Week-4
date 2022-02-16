@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Toasts from './components/toasts';
+import Tables from './components/table';
+import Navigation from './components/navLinks';
+import HomePage from './components/home';
+import { Routes, Route } from 'react-router-dom';
+import TestComponent from './components/test';
+import ModalWindow from './components/modal';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/table" element={<Tables />} />
+        <Route path="/toasts" element={<Toasts />} />
+        <Route path="/modal" element={<ModalWindow />} />
+      </Routes>
     </div>
   );
 }
